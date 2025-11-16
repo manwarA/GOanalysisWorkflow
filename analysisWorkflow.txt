@@ -6,7 +6,6 @@
 #BiocManager::install(organism, character.only = TRUE)
 #BiocManager::install('EnhancedVolcano')
 
-
 #load libraries
 library(SPIA)
 library(stringr)
@@ -20,15 +19,24 @@ library(EnhancedVolcano)
 organism = "org.Hs.eg.db"
 library(organism, character.only = TRUE)
 
-cName <- "KIRP" # the name of disease/type
-#first load the workspace where the analysis has been stored
+# Keep the starting directory, just in case.
+original_direcotry <- getwd()
+# Variable name for the analysis. This was meant to analyze TCGA data, however, it can used to analyse other data sets as well.
+cName <- "KIRP" # the name of disease/type, or the data to be analyzed
+
+# First load the workspace where the analysis has been stored
+# This is meant to be independent. No other variable with same name should be in the environment.
+# It is lot better to clean the evn beforehand with rm(list = ls())
 load(paste0("TCGA-",cName,".RData", sep =""))
 
 #######################################
 # Create directory for Analysis
 #######################################
 
-#create and set the parent dir for analysis; it will create the analysis dir in the current working dir
+# Create and set the parent dir for analysis; it will create the analysis dir in the current working dir
+# A time stampe should be included in the name, so that the re-analysis (if needed) should not overwrite this. Plus, 
+# it can be useful to track the analysis date.
+
 parentDir <- paste0(getwd(), "/", cName, "_Analysis", sep = "")
 dir.create(parentDir)
 setwd(parentDir)
@@ -462,4 +470,5 @@ remove_all()
 Yes
 
 rm(list = ls())
-setwd("C:/rWorkingDir2/tlrs_project/data/")
+setwd(original_direcotry)
+
