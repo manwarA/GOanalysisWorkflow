@@ -447,7 +447,6 @@ enrichr_GO(up_in_cancer, "cancerUp")
 enrichr_GO(up_in_normal, "normalUp")
 enrichr_GO(genes_only_DEG2, "DEGonly")
 
-
 #====================================
 # Remove all the variables to keep the envireonment clean
 #====================================
@@ -462,15 +461,19 @@ remove_all <- function() {
 	response = readline(prompt = "Yes | No: ")
 	if(tolower(response) == tolower("Yes")) {rm(list = ls())}
 	
-	else { message("Please carefull, as no variables has been removed")}
+	else { message("\n
+#====================================
+Please be carefull, as no variables has been removed\n
+#====================================")
+		 }
 	}
-
 
 remove_all()
 Yes
 
 rm(list = ls())
 setwd(original_direcotry)
+
 
 
 
