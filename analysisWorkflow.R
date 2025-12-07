@@ -29,9 +29,9 @@ cName <- "KIRP" # the name of disease/type, or the data to be analyzed
 # It is lot better to clean the evn beforehand with rm(list = ls())
 load(paste0("TCGA-",cName,".RData", sep =""))
 
-#######################################
+#====================================
 # Create directory for Analysis
-#######################################
+#====================================
 
 # Create and set the parent dir for analysis; it will create the analysis dir in the current working dir
 # A time stampe should be included in the name, so that the re-analysis (if needed) should not overwrite this. Plus, 
@@ -54,9 +54,9 @@ create_and_setwd <- function(dirName) {
 		}
 					}
 
-######################################
+#====================================
 # Get gene list for the analysis
-######################################
+#====================================
 
 # it is often seen/recommended that the reseachers used all the identified proteins as background, instead of global background
 background <- row.names(dataFilt) 
@@ -75,9 +75,9 @@ up_in_normal <- as.vector(up_in_normal$gene_name)
 
 geneList <- dataDEG2[, c("logFC", "FDR")]
 
-############################################
+#====================================
 # Convert geneIDs from ENSEM to ENTREIDs
-############################################
+#====================================
 
 # While converting the names, BiTr usually returns a df with two columns, "fromType" & "toType", and it is oftenly difficult to match them
 # to the original dataset. This is a simple function around that concept that BiTr should bind to converted IDs back to the original df 
@@ -471,4 +471,5 @@ Yes
 
 rm(list = ls())
 setwd(original_direcotry)
+
 
