@@ -113,9 +113,9 @@ geneList_DegEntrz <- geneList$logFC
 names(geneList_DegEntrz) <- as.vector(geneList$ENTREZID)
 geneList_DegEntrz <- sort(geneList_DegEntrz, decreasing = TRUE)
 
-##################################
+#====================================
 # Volcano Plot
-##################################
+#====================================
 
 create_and_setwd("01_VolcanoPlot")
 
@@ -140,9 +140,9 @@ EnhancedVolcano(DEGsP, lab = DEGsP$gene_name,
 ggsave("1.volcanoPlot.pdf", width = 10, height = 10, units = "in", dpi = 300)
 dev.off()  
 
-#################################
+#====================================
 # 1. Gene Ontology Analysis (OverRepresentation analysis)
-#################################
+#====================================
 
 # It is not encouraged to do this, unless you are doing it for clustered proteins; the drawbacks in this method can be found here:
 # https://pnnl-comp-mass-spec.github.io/proteomics-data-analysis-tutorial/ora.html#ora-drawbacks
@@ -176,9 +176,9 @@ ggplot(cpGO_df[1:10, ], aes(x = -log10(qvalue[1:10]), y =  reorder(Description[1
 ggsave("1.enrichGO_plot.pdf", width = 10, height = 10, units = "in", dpi = 300)
 dev.off()
 
-#################################
+#====================================
 # 2. SPIA (Ontology based Pathway analysis)
-#################################
+#====================================
 
 create_and_setwd("03_SPIA")
 
@@ -213,12 +213,11 @@ for (i in res$ID){
 		}
 
 dev.off()
-################################
+#====================================
 # GSEA using ClusterProfiler	 
-################################
+#====================================
 
 create_and_setwd("04_GSEA")
-
 
 #change the type of columns to numeric, otherwise unary (aristhmatic comparison) doesnot work
 geneList <- transform(geneList, logFC = as.numeric(logFC), ENTREZID = as.numeric(ENTREZID))
@@ -264,9 +263,9 @@ for (i in 1:30) {
 
 dev.off()
 
-###################################################
+#====================================
 # gseKEGG; gene set enrichment using KEGG data set
-###################################################
+#====================================
 
 create_and_setwd("05_GSEA_with_KEGG")
 
@@ -471,5 +470,6 @@ Yes
 
 rm(list = ls())
 setwd(original_direcotry)
+
 
 
