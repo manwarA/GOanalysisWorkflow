@@ -463,7 +463,7 @@ remove_all <- function() {
 	
 	else { message("\n
 #====================================
-Please be carefull, as no variables has been removed\n
+Please be carefull, as no variables has been removed
 #====================================")
 		 }
 	}
@@ -473,6 +473,7 @@ Yes
 
 rm(list = ls())
 setwd(original_direcotry)
+
 
 
 
