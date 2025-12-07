@@ -448,9 +448,9 @@ enrichr_GO(up_in_normal, "normalUp")
 enrichr_GO(genes_only_DEG2, "DEGonly")
 
 
-############################################################
+#====================================
 # Remove all the variables to keep the envireonment clean
-############################################################
+#====================================
 
 remove_all <- function() {
 	message("
@@ -471,6 +471,7 @@ Yes
 
 rm(list = ls())
 setwd(original_direcotry)
+
 
 
 
