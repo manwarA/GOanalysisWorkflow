@@ -301,9 +301,10 @@ for (i in 1:length(gsekegg$ID)) {
 	ggsave(paste("5.",gsekegg$Description[i],'_',gsekegg$ID[i],'_',i,"_gseKEGGPlot.pdf" ,sep=''), 
 			 width = 10, height = 10, units = "in", dpi = 300)}
 dev.off()
-############################################
+	   
+#====================================
 # Gene set enrichment with predefined genes
-############################################
+#====================================
 
 create_and_setwd("06_GSEA_ImmuneSigDB")
 
@@ -401,9 +402,9 @@ for (i in 1:length(c6_gse$ID)) {
 			 width = 10, height = 10, units = "in", dpi = 300)}
 
 dev.off()
-#############################################################
+#====================================
 # EnrichR
-#############################################################
+#====================================
 
 create_and_setwd("07_EnrichR_GO")
 
@@ -470,6 +471,7 @@ Yes
 
 rm(list = ls())
 setwd(original_direcotry)
+
 
 
 
