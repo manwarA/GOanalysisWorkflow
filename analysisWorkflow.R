@@ -52,9 +52,8 @@ create_and_setwd <- function(dirName) {
 
 
 # Create and set the parent dir for analysis; it will create the analysis dir in the current working dir
-# A time stampe should be included in the name, so that the re-analysis (if needed) should not overwrite this. Plus, 
+# A time stampe has been included in the name, so that the re-analysis (if needed) should not overwrite this. Plus, 
 # it can be useful to track the analysis date.
-
 parentDir <- paste0(getwd(), "/", cName, "_Analysis_", format(Sys.time(), "%Y%m%d_%H%M%S"),  sep = "")
 
 create_and_setwd(parentDir)
@@ -481,5 +480,6 @@ rm(list = ls())
 
 # restored to original working directory
 setwd(original_direcotry)
+
 
 
