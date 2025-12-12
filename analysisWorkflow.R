@@ -467,7 +467,8 @@ remove_all <- function() {
 	
 	else { message("\n
 #====================================
-Please be carefull, as no variables has been removed
+Please be carefull, as no variables has been removed,
+It can mixed up with the new analysis.
 #====================================")
 		 }
 	}
@@ -476,12 +477,6 @@ remove_all()
 Yes
 
 rm(list = ls())
+
+# restored to original working directory
 setwd(original_direcotry)
-
-
-
-
-
-
-
-
