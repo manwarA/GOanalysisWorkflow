@@ -37,14 +37,6 @@ load(paste0("TCGA-",cName,".RData", sep =""))
 # Create directory for Analysis
 #====================================
 
-# Create and set the parent dir for analysis; it will create the analysis dir in the current working dir
-# A time stampe should be included in the name, so that the re-analysis (if needed) should not overwrite this. Plus, 
-# it can be useful to track the analysis date.
-
-parentDir <- paste0(getwd(), "/", cName, "_Analysis", sep = "")
-dir.create(parentDir)
-setwd(parentDir)
-
 # function for subsequent dir creation and setting working dir
 # This will create other directories within "parentDir", thus, only "dirName"
 # should be used
@@ -56,7 +48,16 @@ create_and_setwd <- function(dirName) {
 		dir.create(file.path(parentDir, dirName))
 		setwd(file.path(parentDir, dirName))  
 		}
-					}
+	}
+
+
+# Create and set the parent dir for analysis; it will create the analysis dir in the current working dir
+# A time stampe should be included in the name, so that the re-analysis (if needed) should not overwrite this. Plus, 
+# it can be useful to track the analysis date.
+
+parentDir <- paste0(getwd(), "/", cName, "_Analysis", sep = "")
+dir.create(parentDir)
+setwd(parentDir)
 
 #====================================
 # Get gene list for the analysis
@@ -480,3 +481,4 @@ rm(list = ls())
 
 # restored to original working directory
 setwd(original_direcotry)
+
