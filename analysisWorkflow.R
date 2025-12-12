@@ -86,6 +86,7 @@ geneList <- dataDEG2[, c("logFC", "FDR")]
 # While converting the names, BiTr usually returns a df with two columns, "fromType" & "toType", and it is oftenly difficult to match them
 # to the original dataset. This is a simple function around that concept that BiTr should bind to converted IDs back to the original df 
 # for easier downstream analysis
+### TODO include biomaRt instead of Bitr
 
 bitr2 <- function(df) {
 	stopifnot(class(df)  == "data.frame")
@@ -480,6 +481,7 @@ rm(list = ls())
 
 # restored to original working directory
 setwd(original_direcotry)
+
 
 
 
