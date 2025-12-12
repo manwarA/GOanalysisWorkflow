@@ -15,12 +15,16 @@ library(clusterProfiler)
 library(msigdbr)
 library(EnhancedVolcano)
 
+# clean the workspace
+rm(list = ls())
+
 #organism
 organism = "org.Hs.eg.db"
 library(organism, character.only = TRUE)
 
 # Keep the starting directory, just in case.
 original_direcotry <- getwd()
+
 # Variable name for the analysis. This was meant to analyze TCGA data, however, it can used to analyse other data sets as well.
 cName <- "KIRP" # the name of disease/type, or the data to be analyzed
 
@@ -473,6 +477,7 @@ Yes
 
 rm(list = ls())
 setwd(original_direcotry)
+
 
 
 
