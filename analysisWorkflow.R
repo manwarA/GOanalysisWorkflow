@@ -142,7 +142,7 @@ EnhancedVolcano(DEGsP, lab = DEGsP$gene_name,
 			widthConnectors = 0.75)
 
 # ggsave will save the last display graph
-ggsave("1.volcanoPlot.pdf", width = 10, height = 10, units = "in", dpi = 300)
+ggsave("1.volcanoPlot.pdf", width = 10, height = 10, units = "in", dpi = 300) # by default, the last graph, otherwise, graph number or name can be mentioned.
 dev.off()  
 
 #====================================
@@ -178,7 +178,7 @@ ggplot(cpGO_df[1:10, ], aes(x = -log10(qvalue[1:10]), y =  reorder(Description[1
 	geom_bar(stat = "identity") + 
 	theme_classic()
 
-ggsave("1.enrichGO_plot.pdf", width = 10, height = 10, units = "in", dpi = 300)
+ggsave("1.enrichGO_plot.pdf", width = 10, height = 10, units = "in", dpi = 300) 
 dev.off()
 
 #====================================
@@ -481,6 +481,7 @@ rm(list = ls())
 
 # restored to original working directory
 setwd(original_direcotry)
+
 
 
 
