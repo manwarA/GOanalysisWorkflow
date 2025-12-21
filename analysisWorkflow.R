@@ -160,13 +160,13 @@ geneList_DEG <- geneList$ENTREZID
 cpGO <- enrichGO(geneList_DEG,
 	OrgDb = organism,
 	keyType = "ENTREZID",
-	ont = "BP",		# it can be "CC", "MF" and "ALL"
+	ont = "BP",		# it can be "CC", "MF" or "ALL"
 	pvalueCutoff = 0.05,
 	pAdjustMethod = "BH",
 	universe = as.character(background),
 	qvalueCutoff = 0.2,
-	minGSSize = 10,
-	maxGSSize = 500,
+	minGSSize = 10,		# minimum gene set size, 
+	maxGSSize = 500,	# maximum gene set size, more than this does not make sense. 
 	readable = TRUE,	# will convert EntrezIDs to GeneNames
 	pool = FALSE)
 
@@ -481,6 +481,7 @@ rm(list = ls())
 
 # restored to original working directory
 setwd(original_direcotry)
+
 
 
 
