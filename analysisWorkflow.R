@@ -42,8 +42,11 @@ load(paste0("TCGA-",cName,".RData", sep =""))
 # should be used
 
 create_and_setwd <- function(dirName, parentDir = getwd() ) {
-	# create a time stamp
+	# create a time stamp and append it to dir name
 	time_stamp = format(Sys.time(), "%Y%m%d_%H%M%S")
+	dirName = paste0(dirName, "_", time_stamp)
+	
+	# Since, the file names contains time_stamp, it would be really diffiuclt to have two diff directories at the same time. 
 	if(file.exists(dirName))
 		{setwd(file.path(parentDir, dirName)) }
 	else { 
@@ -483,6 +486,7 @@ rm(list = ls())
 
 # restored to original working directory
 setwd(original_direcotry)
+
 
 
 
