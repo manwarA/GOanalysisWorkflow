@@ -42,6 +42,8 @@ load(paste0("TCGA-",cName,".RData", sep =""))
 # should be used
 
 create_and_setwd <- function(dirName, parentDir = getwd() ) {
+	# create a time stamp
+	time_stamp = format(Sys.time(), "%Y%m%d_%H%M%S")
 	if(file.exists(dirName))
 		{setwd(file.path(parentDir, dirName)) }
 	else { 
@@ -481,6 +483,7 @@ rm(list = ls())
 
 # restored to original working directory
 setwd(original_direcotry)
+
 
 
 
