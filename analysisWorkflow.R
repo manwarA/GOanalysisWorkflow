@@ -41,7 +41,7 @@ load(paste0("TCGA-",cName,".RData", sep =""))
 # This will create other directories within "parentDir", thus, only "dirName"
 # should be used
 
-create_and_setwd <- function(dirName) {
+create_and_setwd <- function(dirName, parentDir = getwd() ) {
 	if(file.exists(dirName))
 		{setwd(file.path(parentDir, dirName)) }
 	else { 
@@ -481,6 +481,7 @@ rm(list = ls())
 
 # restored to original working directory
 setwd(original_direcotry)
+
 
 
 
