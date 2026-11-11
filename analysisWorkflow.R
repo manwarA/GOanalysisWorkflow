@@ -325,7 +325,7 @@ create_and_setwd("06_GSEA_ImmuneSigDB")
 
 #----------------- 1 ------------------------#
 
-m_t2g <- msigdbr(species = "Homo sapiens", category = "C7", subcategory = "IMMUNESIGDB") %>%
+m_t2g <- msigdbr(species = "Homo sapiens", collection = "C7", subcollection = "IMMUNESIGDB") %>%
          dplyr::select(gs_name, entrez_gene)
 
 immuneSig_gse <- GSEA(geneList_DegEntrz,
@@ -346,7 +346,7 @@ dev.off()
 
 create_and_setwd("06_GSEA_HallMarks")
 
-h_t2g <- msigdbr(species = "Homo sapiens", category = "H", subcategory = "") %>%
+h_t2g <- msigdbr(species = "Homo sapiens", collection = "H", subcollection = "") %>%
          dplyr::select(gs_name, entrez_gene)
 
 hallmark_gse <- GSEA(geneList_DegEntrz, TERM2GENE = h_t2g,
@@ -363,7 +363,7 @@ dev.off()
 
 create_and_setwd("06_GSEA_C3_TFT-gtrd")
 
-c3GTRD <- msigdbr(species = "Homo sapiens", category = "C3", subcategory = "TFT:GTRD") %>%
+c3GTRD <- msigdbr(species = "Homo sapiens", collection = "C3", subcollection = "TFT:GTRD") %>%
          dplyr::select(gs_name, entrez_gene)
 
 c3GTRD_gse <- GSEA(geneList_DegEntrz, TERM2GENE = c3GTRD,
@@ -380,7 +380,7 @@ dev.off()
 
 create_and_setwd("06_GSEA_HPO")
 
-c5HPO <- msigdbr(species = "Homo sapiens", category = "C5", subcategory = "HPO") %>%
+c5HPO <- msigdbr(species = "Homo sapiens", collection = "C5", subcollection = "HPO") %>%
          dplyr::select(gs_name, entrez_gene)
 
 c5HPO_gse <- GSEA(geneList_DegEntrz, TERM2GENE = c5HPO,
@@ -398,7 +398,7 @@ dev.off()
 
 create_and_setwd("06_GSEA_Oncogenic_C6")
 
-c6 <- msigdbr(species = "Homo sapiens", category = "C6", subcategory = "") %>%
+c6 <- msigdbr(species = "Homo sapiens", collection = "C6", subcollection = "") %>%
          dplyr::select(gs_name, entrez_gene)
 
 c6_gse <- GSEA(geneList_DegEntrz, TERM2GENE = c6,
